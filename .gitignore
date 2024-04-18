@@ -1,0 +1,6 @@
+init.sh
+plan.out
+.terraform/
+.terraform.lock.hcl
+*.tfvars
+*.yaml
