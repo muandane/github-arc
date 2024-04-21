@@ -52,3 +52,22 @@ variable "github_url" {
   description = "Organization GitHub URL"
 
 }
+variable "ovh_application_secret" {
+  sensitive   = true
+  type        = string
+  description = "ovh application secret"
+}
+variable "ovh_consumer_key" {
+  sensitive   = true
+  type        = string
+  description = "ovh consumer secret"
+}
+variable "ovh_application_key" {
+  sensitive   = true
+  type        = string
+  description = "ovh application key"
+}
+variable "acme_email" {
+  type        = string
+  description = "ovh acme email"
+}

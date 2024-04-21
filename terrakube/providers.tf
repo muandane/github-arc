@@ -9,6 +9,9 @@ terraform {
       source  = "hashicorp/azuread"
       version = "~>2.40.0"
     }
+    kubernetes = {
+
+    }
     helm = {
       source  = "hashicorp/helm"
       version = "~>2.13.1"
@@ -26,6 +29,13 @@ provider "azurerm" {
 }
 provider "random" {}
 provider "azuread" {}
+
+provider "kubernetes" {
+  host                   = azurerm_kubernetes_cluster.tk_cluster.kube_config[0].host
+  cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.tk_cluster.kube_config[0].cluster_ca_certificate)
+  client_certificate     = base64decode(azurerm_kubernetes_cluster.tk_cluster.kube_config[0].client_certificate)
+  client_key             = base64decode(azurerm_kubernetes_cluster.tk_cluster.kube_config[0].client_key)
+}
 
 provider "helm" {
   kubernetes {

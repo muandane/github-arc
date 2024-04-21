@@ -4,3 +4,5 @@ plan.out
 .terraform.lock.hcl
 *.tfvars
 *.yaml
+*.key
+*.crt
